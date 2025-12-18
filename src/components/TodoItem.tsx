@@ -10,14 +10,6 @@ type Props = {
 };
 
 const TodoItem = ({ todo, toggleFav, deleteTodo, toggleDone }: Props) => {
-  //   const todoRef = useRef(null);
-  //   useEffect(() => {
-  //     if (todoRef.current) {
-  //       if (todo.isDone) {
-  //         console.log(typeof todoRef.current);
-  //       }
-  //     }
-  //   }, [todo.isDone]);
   return (
     <div className={`todo-item  ${todo.isDone ? "done" : ""}`}>
       <input
