@@ -1,0 +1,69 @@
+.container {
+    width: 50%;
+    /* min-height: 20%; */
+    position:absolute;
+    top: 25%;
+    left: 25%;
+    background-color: #333;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.todo-item{
+    display: flex;
+    justify-content: start;
+    padding: 12px;
+    margin: 0 20%;
+    text-align: start;
+}
+
+.fav-icon {
+    color: #E7FE55
+
+}
+
+.del-icon {
+    color: brown;
+}
+
+.icon {
+    margin-right: 20px;
+    width: 25px;
+    
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.todoTitle{
+    width: 100%;
+}
+
+.taskInput {
+    height: 30px;
+    width: 50%;
+    border-radius: 20px;
+    padding: 12px;
+    margin: 20px;
+    border: 1px #333 solid;
+    background-color: #414141;
+}
+
+.taskInput:focus {
+  outline: 2px solid #E7FE55; 
+}
+
+.addBtn {
+    height: 50px;
+    border-radius: 20px;
+    background-color: #E7FE55;
+    color: black;
+}
+
+.done{
+    text-decoration-line: line-through;
+    opacity: 0.6;
+}
+
+
