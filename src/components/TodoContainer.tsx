@@ -14,6 +14,19 @@ export type Todo = {
 const TodoContainer = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  // List of ONLY done todos
+  let doneTodos: Todo[] = todos.filter((todo) => {
+    if (todo.isDone) {
+      return todo;
+    }
+    // return todo;
+  });
+  let unDoneTodos = todos.filter((todo) => {
+    if (!todo.isDone) {
+      return todo;
+    }
+  });
+
   // Method to make tasks Favorite and unFavorite
   const toggleFavorite = (id: string) => {
     const udpatedITems = todos.map((item) => {
@@ -45,13 +58,27 @@ const TodoContainer = () => {
   return (
     <div className="container">
       <h3>Tasked</h3>
+
       <AddTaskComponent onAddClick={setTodos} />
+
       <TodoList
-        todos={todos}
+        todos={unDoneTodos}
         toggleFav={toggleFavorite}
         deleteTodo={deleteTodo}
         toggleDone={toggleDone}
       />
+
+      <TodoList
+        todos={doneTodos}
+        toggleFav={toggleFavorite}
+        deleteTodo={deleteTodo}
+        toggleDone={toggleDone}
+      />
+
+      <footer className="app-footer">
+        <span>Version 0.1.0 </span>
+        <span>© 2025 Ahmad El-Baz. All rights reserved.</span>
+      </footer>
     </div>
   );
 };
