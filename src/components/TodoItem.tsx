@@ -30,7 +30,11 @@ const TodoItem = ({ todo, toggleFav, deleteTodo, toggleDone }: Props) => {
         {todo.title}
       </div>
       <div className="fav-icon icon" onClick={() => toggleFav(todo.id)}>
-        {todo.isFavorite ? <MdOutlineFavorite /> : <MdFavoriteBorder />}
+        {todo.isFavorite ? (
+          <MdOutlineFavorite size={18} />
+        ) : (
+          <MdFavoriteBorder size={18} />
+        )}
       </div>
       <div
         className="del-icon icon"
@@ -38,7 +42,7 @@ const TodoItem = ({ todo, toggleFav, deleteTodo, toggleDone }: Props) => {
           deleteTodo(todo.id);
         }}
       >
-        <RiDeleteBin6Fill />
+        <RiDeleteBin6Fill size={18} />
       </div>
     </div>
   );

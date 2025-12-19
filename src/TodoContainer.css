@@ -1,9 +1,17 @@
+:root {
+  --main-bg-color: #333;
+  --main-color: #E7FE55;
+  --main-icon-size: 18px;
+  accent-color: #E7FE55;
+}
+
+
 .container {
     width: 50%;
     position:absolute;
     top: 25%;
     left: 25%;
-    background-color: #333;
+    background-color: var(--main-bg-color);
     border-radius: 18px;
     text-align: center;
     padding-bottom: 100px;
@@ -13,12 +21,12 @@
     display: flex;
     justify-content: start;
     padding: 12px;
-    margin: 0 20%;
+    margin: 0 15%;
     text-align: start;
 }
 
 .fav-icon {
-    color: #E7FE55
+    color: var(--main-color);
 
 }
 
@@ -27,8 +35,9 @@
 }
 
 .icon {
-    margin-right: 20px;
-    width: 25px;
+    margin-right: 12px;
+    width: var(--main-icon-size);
+    height: var(--main-icon-size);
     
 }
 
@@ -41,9 +50,6 @@
      flex: 1;
   min-width: 0;
   word-break: break-word;
-  /* white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; */
 }
 
 .ellipsed {
@@ -73,25 +79,34 @@
     color: black;
 }
 
+.check-icon{
+    color: red;
+}
+
 .done{
     text-decoration-line: line-through;
     opacity: 0.6;
 }
 
 .app-footer {
-  margin-top: auto;     /* ← pushes footer to the bottom */
+    width: 100%;
+  margin-top: auto;
+  position: absolute;
+  bottom: 20px;
   padding-top: 16px;
-  padding-bottom: 12px;
   font-size: 0.85rem;
   color: #777;
   text-align: center;
-  /* border-top: 1px solid #e0e0e0; */
 }
 
 @media (max-width : 750px) {
     .container{
         width: 95%;
         left:2.5%;
+        top: 2.5%
+    }
+    .todo-item {
+        margin: 0;
     }
 }
 

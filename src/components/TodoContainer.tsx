@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../TodoContainer.css";
 import AddTaskComponent from "./AddTaskComponent";
 import TodoList from "./TodoList";
@@ -12,14 +12,33 @@ export type Todo = {
 };
 
 const TodoContainer = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    try {
+      const fetcedData = localStorage.todoList;
+
+      if (fetcedData) {
+        return JSON.parse(fetcedData);
+      } else {
+        return [];
+      }
+    } catch (error) {
+      console.log(`Error fetching data : ${error}`);
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.todoList = JSON.stringify(todos);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [todos]);
 
   // List of ONLY done todos
   let doneTodos: Todo[] = todos.filter((todo) => {
     if (todo.isDone) {
       return todo;
     }
-    // return todo;
   });
   let unDoneTodos = todos.filter((todo) => {
     if (!todo.isDone) {
