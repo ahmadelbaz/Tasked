@@ -84,7 +84,7 @@ const TodoContainer = () => {
 
   return (
     <div className="container">
-      <Header todos={todos} />
+      <Header todos={todos} setTodos={setTodos} />
 
       <AddTaskComponent onAddClick={setTodos} />
 
@@ -94,13 +94,6 @@ const TodoContainer = () => {
         deleteTodo={deleteTodo}
         toggleDone={toggleDone}
       />
-
-      {/* <TodoList
-        todos={doneTodos}
-        toggleFav={toggleFavorite}
-        deleteTodo={deleteTodo}
-        toggleDone={toggleDone}
-      /> */}
 
       <footer className="app-footer">
         <span>Version 0.1.0 </span>

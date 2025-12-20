@@ -24,16 +24,19 @@
 }
 
 .options {
-    display: flex;
+    display: none;
 }
 
 .menu{
-    display: none;
+    display: block;
     margin: 20px 10px;
 }
 
 .export-btn {
-    margin: 10px 20px;
+    margin-top: 10px;
+    margin-right:  10px;
+    height: 40px;
+    border-radius: 50px;
 }
 
 .todo-item{
