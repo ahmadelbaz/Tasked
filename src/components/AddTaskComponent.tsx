@@ -34,6 +34,7 @@ const AddTaskComponent = ({ onAddClick }: Props) => {
           placeholder="Add new task"
           className="taskInput"
           ref={inputRef}
+          dir="auto"
         />
         <button type="submit" onClick={addTask} className="addBtn">
           Add

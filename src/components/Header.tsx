@@ -3,6 +3,7 @@ import { RiArrowDownSFill } from "react-icons/ri";
 
 import { exportTodos } from "../utils/exportTodos";
 import { importTodosFromFile } from "../utils/importTodos";
+import AlertDialogSlide from "./AlertDialogSlide";
 import HeaderMenu from "./HeaderMenu";
 import type { Todo } from "./TodoContainer";
 
@@ -12,12 +13,19 @@ type Props = {
 };
 
 const Header = ({ todos, setTodos }: Props) => {
+  // Options Menue
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleOpen = (e: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(e.currentTarget);
   };
   const handleClose = () => setAnchorEl(null);
+
+  // What's new dialog
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const openNewsDialog = () => setIsDialogOpen(true);
+  const closeNewsDialog = () => setIsDialogOpen(false);
   return (
     <>
       <div className="header">
@@ -35,7 +43,12 @@ const Header = ({ todos, setTodos }: Props) => {
           <h5>What's new</h5>
         </div>
         <div className="menu" onClick={handleOpen}>
-          <RiArrowDownSFill size={25} />
+          <RiArrowDownSFill
+            size={25}
+            className={`arrow-down-icon ${
+              Boolean(anchorEl) ? "icon-opened" : ""
+            }`}
+          />
         </div>
         <input
           type="file"
@@ -62,13 +75,15 @@ const Header = ({ todos, setTodos }: Props) => {
         handleClose={handleClose}
         onExport={() => exportTodos(todos)}
         onImport={() => document.getElementById("import-todos")?.click()}
-        onWhatsNew={() => {}}
+        onWhatsNew={() => {
+          openNewsDialog();
+        }}
       />
-      {/* <AlertDialogSlide
+      <AlertDialogSlide
         isOpen={isDialogOpen}
-        onClose={handleClose}
-        todos={todos}
-      /> */}
+        onClose={closeNewsDialog}
+        children={<>Exporting...</>}
+      />
     </>
   );
 };

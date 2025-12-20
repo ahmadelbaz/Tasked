@@ -26,6 +26,7 @@ const TodoItem = ({ todo, toggleFav, deleteTodo, toggleDone }: Props) => {
       <div
         className={`todoTitle ${isExpanded ? "" : "ellipsed"}`}
         onClick={expandText}
+        dir="auto"
       >
         {todo.title}
       </div>

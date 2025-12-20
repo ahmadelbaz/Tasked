@@ -18,7 +18,6 @@ const TodoContainer = () => {
       const fetcedData = localStorage.todoList;
 
       if (fetcedData) {
-        console.log(JSON.parse(fetcedData));
         return JSON.parse(fetcedData);
       } else {
         return [];
@@ -30,7 +29,6 @@ const TodoContainer = () => {
 
   useEffect(() => {
     try {
-      console.log(todos);
       localStorage.todoList = JSON.stringify(todos);
     } catch (error) {
       console.log(error);
@@ -83,23 +81,24 @@ const TodoContainer = () => {
   });
 
   return (
-    <div className="container">
-      <Header todos={todos} setTodos={setTodos} />
+    <>
+      <div className="container">
+        <Header todos={todos} setTodos={setTodos} />
 
-      <AddTaskComponent onAddClick={setTodos} />
+        <AddTaskComponent onAddClick={setTodos} />
 
-      <TodoList
-        todos={sortedList}
-        toggleFav={toggleFavorite}
-        deleteTodo={deleteTodo}
-        toggleDone={toggleDone}
-      />
-
+        <TodoList
+          todos={sortedList}
+          toggleFav={toggleFavorite}
+          deleteTodo={deleteTodo}
+          toggleDone={toggleDone}
+        />
+      </div>
       <footer className="app-footer">
-        <span>Version 0.1.0 </span>
+        <span>Version 1.0.0 </span>
         <span>© 2025 Ahmad El-Baz. All rights reserved.</span>
       </footer>
-    </div>
+    </>
   );
 };
 

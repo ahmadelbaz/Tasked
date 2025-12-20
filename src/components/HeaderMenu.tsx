@@ -72,7 +72,7 @@ const HeaderMenu = ({
       </MenuItem>
 
       <MenuItem disabled sx={{ fontSize: 12, opacity: 0.6 }}>
-        v0.1.0
+        v1.0.0
       </MenuItem>
     </Menu>
   );
