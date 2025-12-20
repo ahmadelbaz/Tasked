@@ -17,6 +17,25 @@
     padding-bottom: 100px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding : 0 20px
+}
+
+.options {
+    display: flex;
+}
+
+.menu{
+    display: none;
+    margin: 20px 10px;
+}
+
+.export-btn {
+    margin: 10px 20px;
+}
+
 .todo-item{
     display: flex;
     justify-content: start;
@@ -59,7 +78,7 @@
 }
 
 .taskInput {
-    height: 30px;
+    height: 25px;
     width: 50%;
     border-radius: 20px;
     padding: 12px;
@@ -69,18 +88,14 @@
 }
 
 .taskInput:focus {
-  outline: 2px solid #E7FE55; 
+  outline: 2px solid var(--main-color); 
 }
 
 .addBtn {
-    height: 50px;
+    /* height: 30px; */
     border-radius: 20px;
-    background-color: #E7FE55;
+    background-color: var(--main-color);
     color: black;
-}
-
-.check-icon{
-    color: red;
 }
 
 .done{
@@ -99,6 +114,21 @@
   text-align: center;
 }
 
+.option-dialog{
+    width: 100%;
+    border-radius: 18px;
+    text-align: center;
+    /* position: absolute;
+    top: 50px; */
+}
+
+@media (max-width : 1200px) {
+    .container{
+        width: 65%;
+        left:17.5%;
+    }
+}
+
 @media (max-width : 750px) {
     .container{
         width: 95%;
@@ -107,6 +137,18 @@
     }
     .todo-item {
         margin: 0;
+    }
+    .taskInput{
+        margin: 12px 10px
+    }
+}
+
+@media (max-width : 470px) {
+    .options {
+        display: none;
+    }
+    .menu {
+        display: block;
     }
 }
 

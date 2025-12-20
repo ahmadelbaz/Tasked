@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../TodoContainer.css";
 import AddTaskComponent from "./AddTaskComponent";
+import Header from "./Header";
 import TodoList from "./TodoList";
 
 export type Todo = {
@@ -17,6 +18,7 @@ const TodoContainer = () => {
       const fetcedData = localStorage.todoList;
 
       if (fetcedData) {
+        console.log(JSON.parse(fetcedData));
         return JSON.parse(fetcedData);
       } else {
         return [];
@@ -28,23 +30,12 @@ const TodoContainer = () => {
 
   useEffect(() => {
     try {
+      console.log(todos);
       localStorage.todoList = JSON.stringify(todos);
     } catch (error) {
       console.log(error);
     }
   }, [todos]);
-
-  // List of ONLY done todos
-  let doneTodos: Todo[] = todos.filter((todo) => {
-    if (todo.isDone) {
-      return todo;
-    }
-  });
-  let unDoneTodos = todos.filter((todo) => {
-    if (!todo.isDone) {
-      return todo;
-    }
-  });
 
   // Method to make tasks Favorite and unFavorite
   const toggleFavorite = (id: string) => {
@@ -74,25 +65,42 @@ const TodoContainer = () => {
     setTodos(udpatedITems);
   };
 
+  // Method to sort todos by : 1. Done - 2. Favorite - 3. Date
+  let sortedList = [...todos].sort((a, b) => {
+    // First we sort by isDone
+    const doneSorting = Number(a.isDone) - Number(b.isDone);
+    if (doneSorting !== 0) {
+      return doneSorting;
+    }
+
+    // Second we sort by favorite
+    const favoriteSorting = Number(b.isFavorite) - Number(a.isFavorite);
+    if (favoriteSorting !== 0) {
+      return favoriteSorting;
+    }
+
+    return new Date(a.dateTime).getTime() - new Date(b.dateTime).getTime();
+  });
+
   return (
     <div className="container">
-      <h3>Tasked</h3>
+      <Header todos={todos} />
 
       <AddTaskComponent onAddClick={setTodos} />
 
       <TodoList
-        todos={unDoneTodos}
+        todos={sortedList}
         toggleFav={toggleFavorite}
         deleteTodo={deleteTodo}
         toggleDone={toggleDone}
       />
 
-      <TodoList
+      {/* <TodoList
         todos={doneTodos}
         toggleFav={toggleFavorite}
         deleteTodo={deleteTodo}
         toggleDone={toggleDone}
-      />
+      /> */}
 
       <footer className="app-footer">
         <span>Version 0.1.0 </span>
