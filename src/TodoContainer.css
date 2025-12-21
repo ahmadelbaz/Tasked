@@ -1,5 +1,5 @@
 :root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -12,98 +12,95 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --main-bg-color: #333;
-  --main-color: #E7FE55;
+  --main-color: #e7fe55;
   --main-icon-size: 18px;
-  accent-color: #E7FE55;
+  accent-color: #e7fe55;
 }
 
 .container {
-    width: 50%;
-    margin-block: 100px;
-    max-width: 1128px;
-    margin-inline: auto;
-    background-color: var(--main-bg-color);
-    border-radius: 18px;
-    text-align: center;
-    padding-block-end: 30px;
-    
+  width: 50%;
+  margin-block: 100px;
+  max-width: 1128px;
+  margin-inline: auto;
+  background-color: var(--main-bg-color);
+  border-radius: 18px;
+  text-align: center;
+  padding-block-end: 30px;
+
   margin-bottom: 50px;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding : 0 20px
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .options {
-    display: none;
+  display: none;
 }
 
-.menu{
-    display: block;
-    margin: 20px 10px;
+.menu {
+  display: block;
+  margin: 20px 10px;
 }
 
 .export-btn {
-    margin-top: 10px;
-    margin-right:  10px;
-    height: 40px;
-    border-radius: 50px;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 40px;
+  border-radius: 50px;
 }
 
-.todo-item{
-    display: flex;
-    justify-content: start;
-    padding: 12px;
-    margin: 0 15%;
-    text-align: start;
+.todo-item {
+  display: flex;
+  justify-content: start;
+  padding: 12px;
+  margin: 0 15%;
+  text-align: start;
 }
 
 .fav-icon {
-    color: var(--main-color);
-
+  color: var(--main-color);
 }
 
 .del-icon {
-    color: brown;
+  color: brown;
 }
 
 .icon {
-    margin-right: 12px;
-    width: var(--main-icon-size);
-    height: var(--main-icon-size);
-    
+  margin-right: 12px;
+  width: var(--main-icon-size);
+  height: var(--main-icon-size);
 }
 
 .icon:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .arrow-down-icon {
-    color: var(--main-color);
-    border-radius: 50px;
-    transition: transform 0.3s;
+  color: var(--main-color);
+  border-radius: 50px;
+  transition: transform 0.3s;
 }
 
 .arrow-down-icon:hover {
-    cursor: pointer;
-    background-color: #777;
+  cursor: pointer;
+  background-color: #777;
 }
 
 .icon-opened {
-    transform: rotate(180deg);    
-
+  transform: rotate(180deg);
 }
 
 .whatsnew-icon {
-  color: var(--main-color) !important; 
+  color: var(--main-color) !important;
   font-size: 22px;
 }
 
-.todoTitle{
-    width: 100%;
-     flex: 1;
+.todoTitle {
+  width: 100%;
+  flex: 1;
   min-width: 0;
   word-break: break-word;
   margin-right: 12px;
@@ -111,82 +108,80 @@
 }
 
 .todoTitle:hover {
-    opacity: 0.85;
+  opacity: 0.85;
 }
 
 .ellipsed {
-    white-space: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .taskInput {
-    height: 25px;
-    width: 50%;
-    border-radius: 20px;
-    padding: 12px;
-    margin: 20px;
-    border: 1px #333 solid;
-    background-color: #414141;
+  /* height: 25px; */
+  /* width: 50%; */
+  border-radius: 20px;
+  padding: 12px;
+  margin: 20px;
+  border: 1px #333 solid;
+  background-color: #414141;
 }
 
 .taskInput:focus {
-  outline: 2px solid var(--main-color); 
+  outline: 2px solid var(--main-color);
 }
 
 .addBtn {
-    border-radius: 20px;
-    background-color: var(--main-color);
-    color: black;
+  border-radius: 20px;
+  background-color: var(--main-color);
+  color: black;
 }
 
-.done{
-    text-decoration-line: line-through;
-    opacity: 0.6;
+.done {
+  text-decoration-line: line-through;
+  opacity: 0.6;
 }
 
 .app-footer {
-    font-size: 0.85rem;
-    margin-top: 16px;
-    color: #777;
-    width: 100%;
+  font-size: 0.85rem;
+  margin-top: 16px;
+  color: #777;
+  width: 100%;
   text-align: center;
 }
 
-.option-dialog{
-    width: 100%;
-    border-radius: 18px;
-    text-align: center;
+.option-dialog {
+  width: 100%;
+  border-radius: 18px;
+  text-align: center;
 }
 
-@media (max-width : 1200px) {
-    .container{
-        width: 65%;
-        left:17.5%;
-    }
+@media (max-width: 1200px) {
+  .container {
+    width: 65%;
+    left: 17.5%;
+  }
 }
 
-@media (max-width : 750px) {
-    .container{
-        width: 95%;
-        left:2.5%;
-        top: 2.5%
-    }
-    .todo-item {
-        margin: 0;
-    }
-    .taskInput{
-        margin: 12px 10px
-    }
+@media (max-width: 750px) {
+  .container {
+    width: 95%;
+    left: 2.5%;
+    top: 2.5%;
+  }
+  .todo-item {
+    margin: 0;
+  }
+  .taskInput {
+    margin: 12px 10px;
+  }
 }
 
-@media (max-width : 470px) {
-    .options {
-        display: none;
-    }
-    .menu {
-        display: block;
-    }
+@media (max-width: 470px) {
+  .options {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
 }
-
-

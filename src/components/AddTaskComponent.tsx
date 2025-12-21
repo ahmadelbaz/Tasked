@@ -32,7 +32,7 @@ const AddTaskComponent = ({ onAddClick }: Props) => {
         <input
           type="text"
           placeholder="Add new task"
-          className="taskInput"
+          className="taskInput w-1/2 text-xl"
           ref={inputRef}
           dir="auto"
         />

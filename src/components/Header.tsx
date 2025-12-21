@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RiArrowDownSFill } from "react-icons/ri";
 
+import logo from "../assets/TaskedLogoNew.png";
 import { exportTodos } from "../utils/exportTodos";
 import { importTodosFromFile } from "../utils/importTodos";
 import AlertDialogSlide from "./AlertDialogSlide";
@@ -29,7 +30,7 @@ const Header = ({ todos, setTodos }: Props) => {
   return (
     <>
       <div className="header">
-        <h3>Tasked</h3>
+        <img className="w-56 object-contain" src={logo} alt="Logo" />
         <div className="options">
           <button className="export-btn" onClick={() => exportTodos(todos)}>
             Export
@@ -40,7 +41,7 @@ const Header = ({ todos, setTodos }: Props) => {
           >
             Import
           </button>
-          <h5>What's new</h5>
+          <h5 className="text-red-500">What's new</h5>
         </div>
         <div className="menu" onClick={handleOpen}>
           <RiArrowDownSFill
