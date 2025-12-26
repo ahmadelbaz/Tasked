@@ -5,7 +5,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import { type ReactNode } from "react";
 
 import {
   MdFileDownload,
@@ -22,15 +21,12 @@ import { RiArrowDownSFill } from "react-icons/ri";
 interface DialogModalProps {
   isOpen: boolean;
   onClose: () => void;
-  //   todos: Todo[];
-  children: ReactNode;
 }
 
 export default function AlertDialogSlide({
   isOpen,
   onClose,
-}: //   todos,
-DialogModalProps) {
+}: DialogModalProps) {
   return (
     <Dialog
       open={isOpen}

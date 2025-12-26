@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { RiArrowDownSFill } from "react-icons/ri";
 
-import logo from "../assets/TaskedLogoNew.png";
+import logo from "../assets/TaskedLogoNewCropped.png";
 import { exportTodos } from "../utils/exportTodos";
 import { importTodosFromFile } from "../utils/importTodos";
-import AlertDialogSlide from "./AlertDialogSlide";
 import HeaderMenu from "./HeaderMenu";
 import type { Todo } from "./TodoContainer";
+import AlertDialogSlide from "./WhatsNewDialog";
 
 type Props = {
   todos: Todo[];
@@ -30,7 +30,7 @@ const Header = ({ todos, setTodos }: Props) => {
   return (
     <>
       <div className="header">
-        <img className="w-56 object-contain" src={logo} alt="Logo" />
+        <img className="w-36 object-contain" src={logo} alt="Logo" />
         <div className="options">
           <button className="export-btn" onClick={() => exportTodos(todos)}>
             Export
@@ -46,9 +46,7 @@ const Header = ({ todos, setTodos }: Props) => {
         <div className="menu" onClick={handleOpen}>
           <RiArrowDownSFill
             size={25}
-            className={`arrow-down-icon ${
-              Boolean(anchorEl) ? "icon-opened" : ""
-            }`}
+            className={`arrow-down-icon ${anchorEl ? "icon-opened" : ""}`}
           />
         </div>
         <input
@@ -64,7 +62,7 @@ const Header = ({ todos, setTodos }: Props) => {
               const importedTodos = await importTodosFromFile(file);
               setTodos(importedTodos);
             } catch (err) {
-              alert("Invalid todo file");
+              alert(`Invalid todo file ${err}`);
             }
 
             e.target.value = "";
@@ -80,11 +78,7 @@ const Header = ({ todos, setTodos }: Props) => {
           openNewsDialog();
         }}
       />
-      <AlertDialogSlide
-        isOpen={isDialogOpen}
-        onClose={closeNewsDialog}
-        children={<>Exporting...</>}
-      />
+      <AlertDialogSlide isOpen={isDialogOpen} onClose={closeNewsDialog} />
     </>
   );
 };

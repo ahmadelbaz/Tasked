@@ -64,7 +64,7 @@ const TodoContainer = () => {
   };
 
   // Method to sort todos by : 1. Done - 2. Favorite - 3. Date
-  let sortedList = [...todos].sort((a, b) => {
+  const sortedList = [...todos].sort((a, b) => {
     // First we sort by isDone
     const doneSorting = Number(a.isDone) - Number(b.isDone);
     if (doneSorting !== 0) {
