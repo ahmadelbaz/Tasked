@@ -1,3 +1,4 @@
+import { appVersion } from "@/config/consts";
 import { List, ListItemText } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -46,7 +47,7 @@ export default function AlertDialogSlide({
       <DialogTitle sx={{ fontWeight: 600 }}>
         ✨ What’s New in Tasked
         <div style={{ fontSize: "14px", opacity: 0.7, marginTop: "4px" }}>
-          Version 1.0.0
+          Version {`${appVersion}`}
         </div>
       </DialogTitle>
 

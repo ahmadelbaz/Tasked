@@ -1,3 +1,4 @@
+import { appVersion } from "@/config/consts";
 import Divider from "@mui/material/Divider";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -72,7 +73,7 @@ const HeaderMenu = ({
       </MenuItem>
 
       <MenuItem disabled sx={{ fontSize: 12, opacity: 0.6 }}>
-        v1.0.0
+        v{`${appVersion}`}
       </MenuItem>
     </Menu>
   );

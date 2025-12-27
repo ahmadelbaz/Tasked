@@ -1,8 +1,9 @@
+import { appVersion } from "@/config/consts";
 import type { Todo } from "../components/TodoContainer";
 
 export const exportTodos = (todos: Todo[]) => {
   const exportData = {
-    version: "1.0.0",
+    version: `${appVersion}`,
     exportedAt: new Date().toISOString(),
     todos,
   };

@@ -1,3 +1,4 @@
+import { appVersion } from "@/config/consts";
 import { useEffect, useState } from "react";
 import "../TodoContainer.css";
 import AddTaskComponent from "./AddTaskComponent";
@@ -106,7 +107,7 @@ const TodoContainer = () => {
         />
       </div>
       <footer className="app-footer">
-        <span>Version 1.0.0 </span>
+        <span>Version {`${appVersion}`} </span>
         <span>© 2025 Ahmad El-Baz. All rights reserved.</span>
       </footer>
     </>
