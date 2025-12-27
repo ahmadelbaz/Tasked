@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import "../TodoContainer.css";
 import type { Todo } from "./TodoContainer";
+import { Button } from "./ui/button";
 
 type Props = {
   onAddClick: React.Dispatch<React.SetStateAction<Todo[]>>;
@@ -36,9 +37,9 @@ const AddTaskComponent = ({ onAddClick }: Props) => {
           ref={inputRef}
           dir="auto"
         />
-        <button type="submit" onClick={addTask} className="addBtn">
+        <Button className="rounded-full h-12 w-20" onClick={addTask}>
           Add
-        </button>
+        </Button>
       </form>
     </div>
   );
