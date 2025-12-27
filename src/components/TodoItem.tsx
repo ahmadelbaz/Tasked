@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
-import { RiDeleteBin6Fill } from "react-icons/ri";
+import { DeleteIcon } from "./ConfirmDeleteDialog";
 import type { Todo } from "./TodoContainer";
 
 type Props = {
@@ -37,14 +37,15 @@ const TodoItem = ({ todo, toggleFav, deleteTodo, toggleDone }: Props) => {
           <MdFavoriteBorder size={18} />
         )}
       </div>
-      <div
+      <DeleteIcon deleteTodo={() => deleteTodo(todo.id)} />
+      {/* <div
         className="del-icon icon"
         onClick={() => {
           deleteTodo(todo.id);
         }}
       >
         <RiDeleteBin6Fill size={18} />
-      </div>
+      </div> */}
     </div>
   );
 };
