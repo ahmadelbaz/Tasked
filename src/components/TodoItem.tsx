@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { MdFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { DeleteIcon } from "./ConfirmDeleteDialog";
+import { EditDialog } from "./EditDialog";
 import type { Todo } from "./TodoContainer";
 
 type Props = {
   todo: Todo;
   toggleFav: (id: string) => void;
+  editTodo: (id: string, newTtitle: string) => void;
   deleteTodo: (id: string) => void;
   toggleDone: (id: string) => void;
 };
 
-const TodoItem = ({ todo, toggleFav, deleteTodo, toggleDone }: Props) => {
+const TodoItem = ({
+  todo,
+  toggleFav,
+  editTodo,
+  deleteTodo,
+  toggleDone,
+}: Props) => {
   const [isExpanded, setExpanded] = useState(false);
   const expandText = () => {
     setExpanded(!isExpanded);
@@ -37,6 +45,7 @@ const TodoItem = ({ todo, toggleFav, deleteTodo, toggleDone }: Props) => {
           <MdFavoriteBorder size={18} />
         )}
       </div>
+      <EditDialog id={todo.id} title={todo.title} editTodo={editTodo} />
       <DeleteIcon deleteTodo={() => deleteTodo(todo.id)} />
     </div>
   );

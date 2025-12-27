@@ -58,9 +58,19 @@ const TodoContainer = () => {
   };
 
   // Method to delete todo
+  const editTodo = (id: string, newTitle: string) => {
+    const udpatedItems = todos.map((item) => {
+      if (item.id === id) {
+        return { ...item, title: newTitle };
+      }
+      return item;
+    });
+    setTodos(udpatedItems);
+  };
+  // Method to delete todo
   const deleteTodo = (id: string) => {
-    const udpatedITems = todos.filter((todo) => todo.id !== id);
-    setTodos(udpatedITems);
+    const udpatedItems = todos.filter((todo) => todo.id !== id);
+    setTodos(udpatedItems);
   };
 
   // Method to sort todos by : 1. Done - 2. Favorite - 3. Date
@@ -90,6 +100,7 @@ const TodoContainer = () => {
         <TodoList
           todos={sortedList}
           toggleFav={toggleFavorite}
+          editTodo={editTodo}
           deleteTodo={deleteTodo}
           toggleDone={toggleDone}
         />
