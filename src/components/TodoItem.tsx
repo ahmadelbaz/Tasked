@@ -38,14 +38,6 @@ const TodoItem = ({ todo, toggleFav, deleteTodo, toggleDone }: Props) => {
         )}
       </div>
       <DeleteIcon deleteTodo={() => deleteTodo(todo.id)} />
-      {/* <div
-        className="del-icon icon"
-        onClick={() => {
-          deleteTodo(todo.id);
-        }}
-      >
-        <RiDeleteBin6Fill size={18} />
-      </div> */}
     </div>
   );
 };
