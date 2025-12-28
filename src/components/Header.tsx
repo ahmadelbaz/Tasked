@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { RiArrowDownSFill } from "react-icons/ri";
 
-import logo from "../assets/TaskedLogoNewCropped.png";
+import logo from "../assets/FaseelaLogoCropped.png";
 import { exportTodos } from "../utils/exportTodos";
 import { importTodosFromFile } from "../utils/importTodos";
 import HeaderMenu from "./HeaderMenu";
@@ -79,6 +79,7 @@ const Header = ({ todos, setTodos }: Props) => {
         }}
       />
       <AlertDialogSlide isOpen={isDialogOpen} onClose={closeNewsDialog} />
+      {/* <AppVersions></AppVersions> */}
     </>
   );
 };

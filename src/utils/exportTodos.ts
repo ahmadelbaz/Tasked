@@ -15,7 +15,7 @@ export const exportTodos = (todos: Todo[]) => {
 
   const link = document.createElement("a");
   link.href = url;
-  link.download = "tasked-todos.json";
+  link.download = "faseela-todos.json";
 
   document.body.appendChild(link);
   link.click();
