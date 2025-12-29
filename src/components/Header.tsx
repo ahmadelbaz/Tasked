@@ -29,7 +29,7 @@ const Header = ({ todos, setTodos }: Props) => {
   const closeNewsDialog = () => setIsDialogOpen(false);
   return (
     <>
-      <div className="header">
+      <div className="header my-4">
         <img className="w-36 object-contain" src={logo} alt="Logo" />
         <div className="options">
           <button className="export-btn" onClick={() => exportTodos(todos)}>
@@ -45,7 +45,7 @@ const Header = ({ todos, setTodos }: Props) => {
         </div>
         <div className="menu" onClick={handleOpen}>
           <RiArrowDownSFill
-            size={25}
+            size={30}
             className={`arrow-down-icon ${anchorEl ? "icon-opened" : ""}`}
           />
         </div>

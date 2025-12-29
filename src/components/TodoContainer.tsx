@@ -14,17 +14,24 @@ export type Todo = {
 };
 
 const TodoContainer = () => {
+  function restoreTodos(rawTodos: any[]): Todo[] {
+    return rawTodos.map((todo) => ({
+      ...todo,
+      dateTime: new Date(todo.dateTime),
+    }));
+  }
+
   const [todos, setTodos] = useState<Todo[]>(() => {
     try {
-      const fetcedData = localStorage.todoList;
+      const fetchedData = localStorage.todoList;
 
-      if (fetcedData) {
-        return JSON.parse(fetcedData);
-      } else {
-        return [];
-      }
+      if (!fetchedData) return [];
+
+      const parsed = JSON.parse(fetchedData);
+      return restoreTodos(parsed);
     } catch (error) {
-      console.log(`Error fetching data : ${error}`);
+      console.log(`Error fetching data: ${error}`);
+      return [];
     }
   });
 
@@ -93,7 +100,7 @@ const TodoContainer = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container py-2">
         <Header todos={todos} setTodos={setTodos} />
 
         <AddTaskComponent onAddClick={setTodos} />
