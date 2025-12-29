@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -40,6 +41,10 @@ export default function WhatsNewDialog({ isOpen, onClose }: DialogModalProps) {
           <DialogTitle className="text-lg font-semibold">
             ✨ What’s New in {appName}
           </DialogTitle>
+
+          <DialogDescription>
+            Select a version to view its updates.
+          </DialogDescription>
 
           <div className="text-sm opacity-70 mt-1">
             <AppVersions

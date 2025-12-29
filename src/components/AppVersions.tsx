@@ -23,12 +23,8 @@ export function AppVersions({ value, setSelectedVersion }: Props) {
   const allVersions = [appVersion, ...previousVersions];
 
   const onValueChange = (e: string) => {
-    console.log(`changed value : ${e}`);
-    console.log(`onChange : ${setSelectedVersion}`);
     setSelectedVersion(e);
   };
-
-  console.log(allVersions);
 
   return (
     <DropdownMenu modal={false}>
@@ -41,9 +37,9 @@ export function AppVersions({ value, setSelectedVersion }: Props) {
         <DropdownMenuLabel>All versions</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={value} onValueChange={onValueChange}>
-          {allVersions.map((version) => {
+          {allVersions.map((version, index) => {
             return (
-              <DropdownMenuRadioItem value={version}>
+              <DropdownMenuRadioItem value={version} key={index}>
                 V {version}
               </DropdownMenuRadioItem>
             );
