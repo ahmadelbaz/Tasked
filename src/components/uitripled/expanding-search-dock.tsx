@@ -45,7 +45,7 @@ export function ExpandingSearchDock({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={handleExpand}
-            className="flex h-22 w-22 items-center justify-center rounded-full border border-border bg-card transition-colors hover:bg-muted"
+            className="flex h-22 w-22 items-center justify-center rounded-full bg-card transition-colors hover:bg-muted"
           >
             <Search className="h-5 w-5" />
           </motion.button>

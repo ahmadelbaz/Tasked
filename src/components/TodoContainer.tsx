@@ -16,6 +16,7 @@ export type Todo = {
 
 type Filters = {
   search: string;
+  isFavorite: boolean;
 };
 
 const TodoContainer = () => {
@@ -103,8 +104,12 @@ const TodoContainer = () => {
     return new Date(a.dateTime).getTime() - new Date(b.dateTime).getTime();
   });
 
-  const [filters, setFilters] = useState<Filters>({ search: "" });
+  const [filters, setFilters] = useState<Filters>({
+    search: "",
+    isFavorite: false,
+  });
 
+  // Method to set search text
   const setSearchText = (text: string) => {
     console.log(`this is our search text ${text}`);
     setFilters((prev) => ({
@@ -113,18 +118,27 @@ const TodoContainer = () => {
     }));
   };
 
-  console.log(
-    `current list (after sort and before filter) ${sortedList.length}`
-  );
+  // Method to toggle the favorite filter
+  const toggleFavoriteFilter = () => {
+    setFilters((prev) => ({
+      ...prev,
+      isFavorite: !prev.isFavorite,
+    }));
+  };
 
   const filteredList = sortedList.filter((todo) => {
     console.log(`filters.search ${filters.search}`);
-    return filters.search === ""
-      ? sortedList
-      : todo.title.toLowerCase().includes(filters.search);
-  });
 
-  console.log(`current list (after filter) ${sortedList.length}`);
+    // Filter by search
+    const searchFilter =
+      filters.search === "" ||
+      todo.title.toLowerCase().includes(filters.search);
+
+    // Filter by favorites
+    const favoriteFilter = filters.isFavorite === todo.isFavorite;
+
+    return searchFilter && favoriteFilter;
+  });
 
   return (
     <>
@@ -133,7 +147,10 @@ const TodoContainer = () => {
 
         <AddTaskComponent onAddClick={setTodos} />
 
-        <FilteringBar onSearch={setSearchText} />
+        <FilteringBar
+          onSearch={setSearchText}
+          toggleFavoriteFilter={toggleFavoriteFilter}
+        />
 
         <TodoList
           todos={filteredList}
