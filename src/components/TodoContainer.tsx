@@ -2,6 +2,7 @@ import { appVersion } from "@/config/consts";
 import { useEffect, useState } from "react";
 import "../TodoContainer.css";
 import AddTaskComponent from "./AddTaskComponent";
+import FilteringBar from "./FilteringBar";
 import Header from "./Header";
 import TodoList from "./TodoList";
 
@@ -11,6 +12,10 @@ export type Todo = {
   dateTime: Date;
   isDone: boolean;
   isFavorite: boolean;
+};
+
+type Filters = {
+  search: string;
 };
 
 const TodoContainer = () => {
@@ -98,6 +103,29 @@ const TodoContainer = () => {
     return new Date(a.dateTime).getTime() - new Date(b.dateTime).getTime();
   });
 
+  const [filters, setFilters] = useState<Filters>({ search: "" });
+
+  const setSearchText = (text: string) => {
+    console.log(`this is our search text ${text}`);
+    setFilters((prev) => ({
+      ...prev,
+      search: text,
+    }));
+  };
+
+  console.log(
+    `current list (after sort and before filter) ${sortedList.length}`
+  );
+
+  const filteredList = sortedList.filter((todo) => {
+    console.log(`filters.search ${filters.search}`);
+    return filters.search === ""
+      ? sortedList
+      : todo.title.toLowerCase().includes(filters.search);
+  });
+
+  console.log(`current list (after filter) ${sortedList.length}`);
+
   return (
     <>
       <div className="container py-2">
@@ -105,8 +133,10 @@ const TodoContainer = () => {
 
         <AddTaskComponent onAddClick={setTodos} />
 
+        <FilteringBar onSearch={setSearchText} />
+
         <TodoList
-          todos={sortedList}
+          todos={filteredList}
           toggleFav={toggleFavorite}
           editTodo={editTodo}
           deleteTodo={deleteTodo}
