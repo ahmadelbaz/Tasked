@@ -127,15 +127,14 @@ const TodoContainer = () => {
   };
 
   const filteredList = sortedList.filter((todo) => {
-    console.log(`filters.search ${filters.search}`);
-
     // Filter by search
     const searchFilter =
       filters.search === "" ||
       todo.title.toLowerCase().includes(filters.search);
 
     // Filter by favorites
-    const favoriteFilter = filters.isFavorite === todo.isFavorite;
+    const favoriteFilter =
+      filters.isFavorite === todo.isFavorite || !filters.isFavorite;
 
     return searchFilter && favoriteFilter;
   });
@@ -150,6 +149,7 @@ const TodoContainer = () => {
         <FilteringBar
           onSearch={setSearchText}
           toggleFavoriteFilter={toggleFavoriteFilter}
+          isFavorite={filters.isFavorite}
         />
 
         <TodoList
