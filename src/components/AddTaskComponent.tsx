@@ -37,7 +37,7 @@ const AddTaskComponent = ({ onAddClick }: Props) => {
           ref={inputRef}
           dir="auto"
         />
-        <Button className="rounded-full h-12 w-20" onClick={addTask}>
+        <Button className="rounded-full h-12 w-20 bg-primary" onClick={addTask}>
           Add
         </Button>
       </form>

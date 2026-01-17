@@ -5,6 +5,7 @@ import logo from "../assets/FaseelaLogoCropped.png";
 import { exportTodos } from "../utils/exportTodos";
 import { importTodosFromFile } from "../utils/importTodos";
 import HeaderMenu from "./HeaderMenu";
+import SettingsDialog from "./SettingsDialog";
 import type { Todo } from "./TodoContainer";
 import AlertDialogSlide from "./WhatsNewDialog";
 
@@ -23,10 +24,18 @@ const Header = ({ todos, setTodos }: Props) => {
   const handleClose = () => setAnchorEl(null);
 
   // What's new dialog
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isWhatsNewDialogOpen, setIsWhatsNewDialogOpen] = useState(false);
 
-  const openNewsDialog = () => setIsDialogOpen(true);
-  const closeNewsDialog = () => setIsDialogOpen(false);
+  // Setings dialog
+  const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false);
+
+  // Open and close whats new dialog
+  const openNewsDialog = () => setIsWhatsNewDialogOpen(true);
+  const closeNewsDialog = () => setIsWhatsNewDialogOpen(false);
+
+  // Open and close settings dialog
+  const openSettings = () => setIsSettingsDialogOpen(true);
+  const closeSettingsDialog = () => setIsSettingsDialogOpen(false);
   return (
     <>
       <div className="header my-4">
@@ -46,7 +55,9 @@ const Header = ({ todos, setTodos }: Props) => {
         <div className="menu" onClick={handleOpen}>
           <RiArrowDownSFill
             size={30}
-            className={`arrow-down-icon ${anchorEl ? "icon-opened" : ""}`}
+            className={`text-primary arrow-down-icon ${
+              anchorEl ? "icon-opened" : ""
+            }`}
           />
         </div>
         <input
@@ -72,13 +83,23 @@ const Header = ({ todos, setTodos }: Props) => {
       <HeaderMenu
         anchorEl={anchorEl}
         handleClose={handleClose}
+        openSettings={() => {
+          openSettings();
+        }}
         onExport={() => exportTodos(todos)}
         onImport={() => document.getElementById("import-todos")?.click()}
         onWhatsNew={() => {
           openNewsDialog();
         }}
       />
-      <AlertDialogSlide isOpen={isDialogOpen} onClose={closeNewsDialog} />
+      <AlertDialogSlide
+        isOpen={isWhatsNewDialogOpen}
+        onClose={closeNewsDialog}
+      />
+      <SettingsDialog
+        isOpen={isSettingsDialogOpen}
+        onClose={closeSettingsDialog}
+      />
       {/* <AppVersions></AppVersions> */}
     </>
   );

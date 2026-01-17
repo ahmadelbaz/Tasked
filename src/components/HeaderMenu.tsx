@@ -2,11 +2,13 @@ import { appVersion } from "@/config/consts";
 import Divider from "@mui/material/Divider";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { SettingsIcon } from "lucide-react";
 import { MdFileDownload, MdFileUpload, MdNewReleases } from "react-icons/md";
 
 type Props = {
   anchorEl: null | HTMLElement;
   handleClose: () => void;
+  openSettings: () => void;
   onExport: () => void;
   onImport: () => void;
   onWhatsNew: () => void;
@@ -15,6 +17,7 @@ type Props = {
 const HeaderMenu = ({
   anchorEl,
   handleClose,
+  openSettings,
   onExport,
   onImport,
   onWhatsNew,
@@ -40,6 +43,16 @@ const HeaderMenu = ({
         },
       }}
     >
+      <MenuItem
+        onClick={() => {
+          handleClose();
+          openSettings();
+        }}
+      >
+        <SettingsIcon style={{ marginRight: 8 }} size={16} />
+        Settings
+      </MenuItem>
+
       <MenuItem
         onClick={() => {
           handleClose();

@@ -26,7 +26,7 @@ export function EditDialog({ id, title, editTodo }: props) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <MdEdit size={18} className="fav-icon icon" />
+        <MdEdit size={18} className="text-primary w-4 h-4 mr-4" />
       </DialogTrigger>
 
       <DialogContent

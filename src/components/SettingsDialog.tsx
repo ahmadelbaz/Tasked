@@ -8,18 +8,18 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { AppVersions } from "./AppVersions";
 
-import { appName, appVersion } from "@/config/consts";
+import { appVersion } from "@/config/consts";
 import { WHATS_NEW } from "@/config/whatsNew";
 import { useMemo, useState } from "react";
+import { AccentColors } from "./AccentColors";
 
 interface DialogModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function WhatsNewDialog({ isOpen, onClose }: DialogModalProps) {
+export default function SettingsDialog({ isOpen, onClose }: DialogModalProps) {
   const [selectedVersion, setSelectedVersion] = useState(appVersion);
 
   const features = useMemo(() => {
@@ -39,18 +39,12 @@ export default function WhatsNewDialog({ isOpen, onClose }: DialogModalProps) {
         {/* Header */}
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold">
-            ✨ What’s New in {appName}
+            ⚙️ Settings
           </DialogTitle>
-
-          <DialogDescription>
-            Select a version to view its updates.
-          </DialogDescription>
-
+          <DialogDescription>Control your preferences here.</DialogDescription>
+          <p>Select accent color</p>
           <div className="text-sm opacity-70 mt-1">
-            <AppVersions
-              value={selectedVersion}
-              setSelectedVersion={setSelectedVersion}
-            />
+            <AccentColors />
           </div>
         </DialogHeader>
 

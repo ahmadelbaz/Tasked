@@ -41,14 +41,11 @@ export default function FilteringBar({
               onClick={toggleFavoriteFilter}
               className={`flex h-22 w-22 items-center justify-center rounded-full 
                  bg-card
-               transition-colors ${
-                 isFavorite ? "hover:bg-accent/90" : "hover:bg-muted"
-               }`}
+               transition-colors hover:bg-muted`}
               style={isFavorite ? { backgroundColor: color } : undefined}
             >
               <Heart
-                className={`h-5 w-5`}
-                color={isFavorite ? "hsl(var(--card))" : "white"}
+                className={`h-5 w-5 ${isFavorite ? "text-primary" : "text-white"}`}
               />
             </motion.button>
           </div>

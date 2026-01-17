@@ -66,9 +66,9 @@
   text-align: start;
 }
 
-.fav-icon {
-  color: var(--main-color);
-}
+/* .fav-icon {
+  color: var(--primary);
+} */
 
 .del-icon {
   color: brown;
@@ -85,7 +85,7 @@
 }
 
 .arrow-down-icon {
-  color: var(--main-color);
+  /* color: var(--main-color); */
   border-radius: 50px;
   transition: transform 0.3s;
 }
@@ -218,11 +218,11 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--card);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 @media (prefers-color-scheme: light) {
@@ -254,7 +254,7 @@ button:focus-visible {
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
     --accent: 68 99% 66%;
-    --accent-foreground: 0 0% 9%;
+    --accent-foreground: 0 0% 20%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
@@ -282,7 +282,7 @@ button:focus-visible {
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
     --accent: 68 99% 66%;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 20%;
     --destructive: 68, 100%, 44%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;

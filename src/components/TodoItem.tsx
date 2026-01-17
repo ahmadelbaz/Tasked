@@ -28,7 +28,7 @@ const TodoItem = ({
       <input
         type="checkbox"
         checked={todo.isDone}
-        className="check-icon icon"
+        className="w-4 h-4 mr-4 bg-primary text-primary focus:primary accent-primary"
         onChange={() => toggleDone(todo.id)}
       />
       <div
@@ -38,7 +38,10 @@ const TodoItem = ({
       >
         {todo.title}
       </div>
-      <div className="fav-icon icon" onClick={() => toggleFav(todo.id)}>
+      <div
+        className="text-primary w-4 h-4 mr-4"
+        onClick={() => toggleFav(todo.id)}
+      >
         {todo.isFavorite ? (
           <MdOutlineFavorite size={18} />
         ) : (
