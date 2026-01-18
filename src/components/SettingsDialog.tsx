@@ -20,9 +20,9 @@ interface DialogModalProps {
 }
 
 export default function SettingsDialog({ isOpen, onClose }: DialogModalProps) {
-  const [selectedVersion, setSelectedVersion] = useState(appVersion);
+  const [selectedVersion] = useState(appVersion);
 
-  const features = useMemo(() => {
+  useMemo(() => {
     return WHATS_NEW.find((v) => v.version === selectedVersion)?.items ?? [];
   }, [selectedVersion]);
   return (

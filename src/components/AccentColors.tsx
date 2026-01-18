@@ -15,11 +15,6 @@ import {
 import { accentColors } from "@/config/consts";
 import { useColor } from "@/context/ColorContext";
 
-type Props = {
-  value: string;
-  setSelectedVersion: React.Dispatch<React.SetStateAction<string>>;
-};
-
 export function AccentColors(/*{ value, setSelectedVersion }: Props*/) {
   const { color, setAccentColor } = useColor();
 
@@ -30,7 +25,7 @@ export function AccentColors(/*{ value, setSelectedVersion }: Props*/) {
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" className="rounded-full">
           <RiArrowDownSFill />{" "}
           <div
             style={{ "--accent": color } as React.CSSProperties}
