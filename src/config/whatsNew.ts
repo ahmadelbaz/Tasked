@@ -1,7 +1,9 @@
 import {
   MdAutoAwesome,
+  MdColorLens,
   MdDeleteForever,
   MdEdit,
+  MdFavorite,
   MdFileDownload,
   MdFileUpload,
   MdLanguage,
@@ -9,6 +11,7 @@ import {
   MdPalette,
   MdPhoneIphone,
   MdSave,
+  MdSearch,
   MdTextFields,
 } from "react-icons/md";
 import { RiArrowDownSFill } from "react-icons/ri";
@@ -25,6 +28,24 @@ export type WhatsNewVersion = {
 };
 
 export const WHATS_NEW: WhatsNewVersion[] = [
+  {
+    version: "1.1.1",
+    items: [
+      {
+        icon: MdSearch,
+        text: "The search experience is now smarter and works seamlessly alongside other filters.",
+      },
+      {
+        icon: MdFavorite,
+        text: "Filter your todos to show only favorites for quicker access to important tasks.",
+      },
+      {
+        icon: MdColorLens,
+        text: "Customize the app accent color — buttons, icons, and highlights now adapt to your chosen theme.",
+      },
+    ],
+  },
+
   {
     version: "1.1.0",
     items: [
