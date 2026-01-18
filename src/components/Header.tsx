@@ -4,6 +4,7 @@ import { RiArrowDownSFill } from "react-icons/ri";
 import logo from "../assets/FaseelaLogoCropped.png";
 import { exportTodos } from "../utils/exportTodos";
 import { importTodosFromFile } from "../utils/importTodos";
+import { AccentColors } from "./AccentColors";
 import HeaderMenu from "./HeaderMenu";
 import SettingsDialog from "./SettingsDialog";
 import type { Todo } from "./TodoContainer";
@@ -40,6 +41,11 @@ const Header = ({ todos, setTodos }: Props) => {
     <>
       <div className="header my-4">
         <img className="w-36 object-contain" src={logo} alt="Logo" />
+        {/* Spacer */}
+        <div className="flex-1" />
+        <div className="mt-4">
+          <AccentColors />
+        </div>
         <div className="options">
           <button className="export-btn" onClick={() => exportTodos(todos)}>
             Export
@@ -100,7 +106,6 @@ const Header = ({ todos, setTodos }: Props) => {
         isOpen={isSettingsDialogOpen}
         onClose={closeSettingsDialog}
       />
-      {/* <AppVersions></AppVersions> */}
     </>
   );
 };

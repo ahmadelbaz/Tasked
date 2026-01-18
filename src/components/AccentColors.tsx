@@ -24,7 +24,6 @@ export function AccentColors(/*{ value, setSelectedVersion }: Props*/) {
   const { color, setAccentColor } = useColor();
 
   const onValueChange = (e: string) => {
-    console.log(`Before we change accent color ${e}`);
     setAccentColor(e);
   };
 
@@ -32,17 +31,24 @@ export function AccentColors(/*{ value, setSelectedVersion }: Props*/) {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">
-          <RiArrowDownSFill /> {color}
+          <RiArrowDownSFill />{" "}
+          <div
+            style={{ "--accent": color } as React.CSSProperties}
+            className="w-4 h-4 rounded-full bg-[hsl(var(--accent))] text-[hsl(var(--accent))]"
+          ></div>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 z-[2000]" sideOffset={8}>
+      <DropdownMenuContent className="w-4 z-[2000]" sideOffset={8}>
         <DropdownMenuLabel>All versions</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup value={color} onValueChange={onValueChange}>
           {accentColors.map((color, index) => {
             return (
               <DropdownMenuRadioItem value={color} key={index}>
-                {color}
+                <div
+                  style={{ "--accent": color } as React.CSSProperties}
+                  className="w-4 h-4 rounded-full bg-[hsl(var(--accent))] text-[hsl(var(--accent))]"
+                ></div>
               </DropdownMenuRadioItem>
             );
           })}

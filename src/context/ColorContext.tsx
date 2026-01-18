@@ -12,13 +12,15 @@ interface ColorProviderProps {
 }
 
 export default function ColorProvider({ children }: ColorProviderProps) {
-  const [color, setColor] = useState("68 99% 66%");
+  // Get stored color
+  const storedColor = localStorage.getItem(`color`);
+  const [color, setColor] = useState(storedColor ?? "68 99% 66%");
 
   const setAccentColor = (newColor: string) => {
-    console.log(`Now we set a new color ${newColor}`);
     setColor(newColor);
     document.documentElement.style.setProperty("--primary", newColor);
     document.documentElement.style.setProperty("--accent", newColor);
+    localStorage.setItem("color", newColor);
   };
   return (
     <colorContext.Provider value={{ color, setAccentColor }}>
@@ -28,7 +30,6 @@ export default function ColorProvider({ children }: ColorProviderProps) {
 }
 
 export const useColor = () => {
-  console.log(`Are we here ?`);
   const context = useContext(colorContext);
   if (!context) {
     throw `Error in context`;

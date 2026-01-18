@@ -111,7 +111,6 @@ const TodoContainer = () => {
 
   // Method to set search text
   const setSearchText = (text: string) => {
-    console.log(`this is our search text ${text}`);
     setFilters((prev) => ({
       ...prev,
       search: text,

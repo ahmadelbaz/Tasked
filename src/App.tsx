@@ -9,6 +9,14 @@ const App = () => {
   const hasSeenWhatsNewDialog =
     localStorage.getItem(`${appVersion}`) === "true";
 
+  // Get stored color
+  const storedColor = localStorage.getItem(`color`);
+
+  if (storedColor) {
+    document.documentElement.style.setProperty("--primary", storedColor);
+    document.documentElement.style.setProperty("--accent", storedColor);
+  }
+
   // What's new dialog
   const [isDialogOpen, setIsDialogOpen] = useState(true);
 

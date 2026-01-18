@@ -48,23 +48,6 @@ export default function SettingsDialog({ isOpen, onClose }: DialogModalProps) {
           </div>
         </DialogHeader>
 
-        {/* Content */}
-        <ul className="mt-4 space-y-3">
-          {features.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <li key={i} className="flex gap-5">
-                <Icon
-                  className={`text-2xl w-5 min-w-5 ${
-                    item.iconClassName ?? ""
-                  } text-primary`}
-                />
-                <p className="text-sm leading-relaxed">{item.text}</p>
-              </li>
-            );
-          })}
-        </ul>
-
         {/* Footer */}
         <div className="flex justify-center mt-6">
           <Button
